@@ -1,0 +1,200 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PropertyCard from "../components/PropertyCard.astro";
+import Coordinates from "../components/Coordinates.astro";
+import { properties, communes, types } from "../data/properties.js";
+
+const featured = properties.slice(0, 3);
+---
+
+<Layout title="Inicio" active="inicio">
+  <!-- HERO -->
+  <section
+    class="relative flex min-h-[78vh] items-center overflow-hidden bg-navy-950 md:min-h-[82vh]"
+  >
+    <div class="absolute inset-0">
+      <img
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBORQsOxSVR0hPLCyHFobxIUigMFJixyaTKDS18S7lZoSq2aIDYou3f_zUHARxL0W0qt7U5Jqjia8SO8xQUP-18yHFX5yDl7XzzKT-6ShVoWhClkwhHCVG4bNqDno72jfzuID4lQKCGwgl0XKdkSPlMc9ewdXFPy3T2HlBHsjPI7WdNSp05iqy68uPk25GMvpWZv02g11Aj5O4IHB9LCI1kfBoq-pnCibdauB00Rkzoocd8SIKtTn_iOg"
+        alt="Paisaje de la Región de Ñuble"
+        class="h-full w-full object-cover opacity-70"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/70 to-navy-950/30"
+      >
+      </div>
+      <div class="absolute inset-0 bg-grain mix-blend-overlay"></div>
+    </div>
+
+    <div
+      class="relative z-10 mx-auto w-full max-w-7xl px-5 pb-16 pt-28 md:px-12 md:pb-24 md:pt-32"
+    >
+      <Coordinates class="mb-6 text-gold-light" />
+      <h1
+        class="max-w-3xl font-display text-4xl font-semibold leading-[1.08] text-paper md:text-6xl"
+      >
+        Propiedades e inversiones con la mirada de quien conoce Ñuble.
+      </h1>
+      <p class="mt-6 max-w-xl font-body text-lg leading-relaxed text-paper/75">
+        Corretaje independiente y asesoría directa, sin intermediarios, para
+        comprar, vender o invertir con confianza en la región.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="/propiedades" class="btn-gold">Ver propiedades</a>
+        <a
+          href="/contacto"
+          class="btn-outline border-paper/40 text-paper hover:border-paper hover:bg-paper/10"
+        >
+          Hablar con María Luisa
+        </a>
+      </div>
+    </div>
+
+    <!-- floating search card -->
+    <div
+      class="absolute inset-x-5 bottom-0 z-10 hidden -translate-y-1/4 md:inset-x-12 md:block"
+    >
+      <form
+        action="/propiedades"
+        class="mx-auto flex max-w-5xl flex-col gap-4 rounded-sm bg-white p-6 shadow-cardLg md:flex-row md:items-end"
+      >
+        <div class="flex-1">
+          <label class="field-label" for="q-type">Tipo de propiedad</label>
+          <select id="q-type" name="type" class="field">
+            <option value="">Todos los tipos</option>
+            {types.map((t) => <option value={t}>{t}</option>)}
+          </select>
+        </div>
+        <div class="flex-1">
+          <label class="field-label" for="q-commune">Comuna</label>
+          <select id="q-commune" name="commune" class="field">
+            <option value="">Toda la región</option>
+            {communes.map((c) => <option value={c}>{c}</option>)}
+          </select>
+        </div>
+        <button type="submit" class="btn-primary md:w-auto">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"
+            ></path></svg
+          >
+          Buscar propiedades
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Mobile search (stacked below hero) -->
+  <section class="bg-navy-950 px-5 pb-10 pt-6 md:hidden">
+    <form
+      action="/propiedades"
+      class="flex flex-col gap-3 rounded-sm bg-white p-5 shadow-cardLg"
+    >
+      <div>
+        <label class="field-label" for="q-type-m">Tipo</label>
+        <select id="q-type-m" name="type" class="field">
+          <option value="">Todos los tipos</option>
+          {types.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="q-commune-m">Comuna</label>
+        <select id="q-commune-m" name="commune" class="field">
+          <option value="">Toda la región</option>
+          {communes.map((c) => <option value={c}>{c}</option>)}
+        </select>
+      </div>
+      <button type="submit" class="btn-primary w-full"
+        >Buscar propiedades</button
+      >
+    </form>
+  </section>
+
+  <!-- VALUE STRIP -->
+  <section class="mx-auto max-w-7xl px-5 py-20 md:px-12 md:pt-28">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
+      <div class="flex flex-col gap-3">
+        <span class="font-display text-3xl text-gold-dark">01</span>
+        <h3 class="font-display text-xl font-semibold text-navy-900">
+          Conocimiento del territorio
+        </h3>
+        <p class="font-body text-sm leading-relaxed text-stone-600">
+          Cada comuna de Ñuble tiene su propio ritmo de mercado. Lo conocemos
+          calle a calle, no solo en el mapa.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <span class="font-display text-3xl text-gold-dark">02</span>
+        <h3 class="font-display text-xl font-semibold text-navy-900">
+          Trato directo, sin intermediarios
+        </h3>
+        <p class="font-body text-sm leading-relaxed text-stone-600">
+          Usted conversa siempre con la misma persona, desde la primera visita
+          hasta la firma.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <span class="font-display text-3xl text-gold-dark">03</span>
+        <h3 class="font-display text-xl font-semibold text-navy-900">
+          Enfoque en resultados
+        </h3>
+        <p class="font-body text-sm leading-relaxed text-stone-600">
+          Tasación realista, red legal de confianza y acompañamiento hasta el
+          cierre del negocio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROPERTIES -->
+  <section class="bg-stone-50 py-20">
+    <div class="mx-auto max-w-7xl px-5 md:px-12">
+      <div
+        class="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end"
+      >
+        <div>
+          <p class="eyebrow mb-3">Selección actual</p>
+          <h2
+            class="font-display text-3xl font-semibold text-navy-900 md:text-4xl"
+          >
+            Propiedades destacadas
+          </h2>
+        </div>
+        <a href="/propiedades" class="btn-outline">Ver todo el catálogo</a>
+      </div>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {
+          featured.map((p, i) => (
+            <PropertyCard property={p} featured={i === 0} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-7xl px-5 py-20 md:px-12">
+    <div
+      class="flex flex-col items-center gap-6 rounded-sm bg-navy-800 px-8 py-16 text-center md:px-16"
+    >
+      <Coordinates label="ASESORÍA PERSONALIZADA" class="text-gold-light" />
+      <h2
+        class="max-w-2xl font-display text-3xl font-semibold text-paper md:text-4xl"
+      >
+        ¿Listo para dar el siguiente paso en Ñuble?
+      </h2>
+      <p class="max-w-lg font-body text-paper/75">
+        Conversemos sobre su próxima compra, venta o inversión. Primera consulta
+        sin compromiso.
+      </p>
+      <a href="/contacto" class="btn-gold mt-2">Agendar una conversación</a>
+    </div>
+  </section>
+</Layout>

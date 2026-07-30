@@ -1,0 +1,13 @@
+---
+// Signature device: Ñuble region coordinates, used sparingly as an eyebrow / mark
+// echoing the brand's "hyper-local expert" positioning.
+interface Props {
+  class?: string;
+  label?: string;
+}
+const { class: className = '', label = 'REGIÓN DE ÑUBLE' } = Astro.props;
+---
+<span class={`inline-flex items-center gap-2 font-ui text-[11px] font-semibold tracking-widest2 text-gold-dark ${className}`}>
+  <span class="inline-block h-1.5 w-1.5 rounded-full bg-gold"></span>
+  36.6°S&nbsp;72.1°W — {label}
+</span>

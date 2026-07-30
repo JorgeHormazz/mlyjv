@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Coordinates from '../components/Coordinates.astro';
+
+const values = [
+  {
+    title: 'Confianza y transparencia',
+    text: 'Cada transacción se maneja con máxima integridad y claridad, para que usted esté informado en cada paso del proceso.',
+    icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+  },
+  {
+    title: 'Conocimiento local profundo',
+    text: 'Especialista en la Región de Ñuble, comprendiendo las dinámicas únicas de cada comuna para tasar y posicionar correctamente su propiedad.',
+    icon: 'M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z',
+  },
+  {
+    title: 'Asesoría personalizada',
+    text: 'No es solo una venta: es entender sus necesidades a largo plazo para encontrar el hogar o la inversión adecuada.',
+    icon: 'M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z',
+  },
+  {
+    title: 'Acompañamiento legal',
+    text: 'Red de contactos con abogados y notarías de confianza para que el proceso legal se realice sin contratiempos.',
+    icon: 'M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z',
+  },
+];
+---
+<Layout title="Sobre mí" active="sobre-mi" description="Conoce a María Luisa, corredora especialista en la Región de Ñuble, con más de 15 años de experiencia.">
+  <section class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 py-20 md:grid-cols-12 md:px-12">
+    <div class="order-2 flex flex-col gap-6 md:order-1 md:col-span-6 lg:col-span-5">
+      <Coordinates />
+      <h1 class="font-display text-4xl font-semibold leading-tight text-navy-900 md:text-5xl">
+        Conocimiento local, atención directa.
+      </h1>
+      <p class="font-body text-lg leading-relaxed text-stone-600">
+        Soy especialista independiente en la Región de Ñuble. Mi enfoque es brindarle una
+        asesoría cercana, transparente y altamente personalizada para sus decisiones de
+        inversión o venta de propiedades.
+      </p>
+      <p class="font-body leading-relaxed text-stone-600">
+        Lejos de las grandes franquicias, aquí encontrará a una profesional dedicada a
+        entender sus necesidades específicas y acompañarla en cada etapa del proceso.
+      </p>
+      <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+        <a href="/contacto" class="btn-primary">Agendar una reunión</a>
+        <a href="/propiedades" class="btn-outline">Ver propiedades destacadas</a>
+      </div>
+    </div>
+    <div class="order-1 md:order-2 md:col-span-6 lg:col-span-7">
+      <div class="relative aspect-[4/5] overflow-hidden rounded-sm shadow-cardLg md:aspect-square">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB91W_zoV5k1rD4GYPwJuJY7OBfgRvAdWLY6FlX7-SqBeSB9psM1x-_gO54exL0k-hE9rSVuhVyV5_G0jeeBiP_RpWug-ik-gcPbT0xwUofBZE-sejM612XL334UHYdjAlJNpTR_vE17zSDgtBO3KdQ9UxBLEh4R5B3tApKJFYRXlGICGV9GvEdvmu_BPKaxw36DyMnJwMHgxu0bZCm19p2EgNptCRAloWqALRUugdp7LRKtO9fE2-zLw"
+          alt="María Luisa, corredora de propiedades"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-stone-200 bg-stone-50 py-20">
+    <div class="mx-auto max-w-7xl px-5 md:px-12">
+      <p class="eyebrow mb-3">15+ años de trayectoria</p>
+      <h2 class="mb-12 max-w-2xl font-display text-3xl font-semibold text-navy-900 md:text-4xl">
+        Mi compromiso con cada cliente
+      </h2>
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+        {values.map((v) => (
+          <div class="flex gap-5">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-navy-800 text-gold-light">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d={v.icon} />
+              </svg>
+            </span>
+            <div>
+              <h3 class="font-display text-lg font-semibold text-navy-900">{v.title}</h3>
+              <p class="mt-2 font-body text-sm leading-relaxed text-stone-600">{v.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto flex max-w-3xl flex-col items-center gap-5 px-5 py-24 text-center md:px-12">
+    <h2 class="font-display text-3xl font-semibold text-navy-900 md:text-4xl">
+      ¿Listo para dar el siguiente paso?
+    </h2>
+    <p class="font-body text-stone-600">Contácteme hoy para una consulta inicial sin compromiso.</p>
+    <div class="mt-2 flex flex-col gap-3 sm:flex-row">
+      <a href="/contacto" class="btn-primary">Agendar reunión</a>
+      <a href="/propiedades" class="btn-outline">Ver propiedades</a>
+    </div>
+  </section>
+</Layout>
